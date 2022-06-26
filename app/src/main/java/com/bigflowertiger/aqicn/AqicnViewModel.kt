@@ -36,7 +36,7 @@ class AqicnViewModel @Inject constructor(private val repository: AqicnRepository
                         loading = false
                     )
             }.onException {
-                AqicnState(
+                _aqiState.value = AqicnState(
                     errMsg = it.message ?: "未知异常",
                     null,
                     loading = false
