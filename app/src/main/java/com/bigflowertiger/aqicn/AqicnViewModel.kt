@@ -1,14 +1,15 @@
 package com.bigflowertiger.aqicn
 
-import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bigflowertiger.aqicn.domain.AqicnRepository
-import com.bigflowertiger.aqicn.model.AqicnResponse
 import com.bigflowertiger.aqicn.model.AqicnState
+import com.bigflowertiger.aqicn.network.onError
+import com.bigflowertiger.aqicn.network.onException
+import com.bigflowertiger.aqicn.network.onSuccess
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -24,6 +25,26 @@ class AqicnViewModel @Inject constructor(private val repository: AqicnRepository
 
     fun fetchAqi(lng: String, lat: String) {
         viewModelScope.launch {
+            val response = repository.getGeolocalizedFeed(lng, lat)
+            response.onSuccess {
+                _aqiState.value = AqicnState(data = it, loading = false)
+            }.onError { code, message ->
+                _aqiState.value =
+                    AqicnState(
+                        errMsg = message ?: "未知异常",
+                        null,
+                        loading = false
+                    )
+            }.onException {
+                AqicnState(
+                    errMsg = it.message ?: "未知异常",
+                    null,
+                    loading = false
+                )
+            }
+        }
+/*
+        viewModelScope.launch {
             try {
                 _aqiState.value =
                     AqicnState(data = repository.getGeolocalizedFeed(lng, lat), loading = false)
@@ -37,5 +58,6 @@ class AqicnViewModel @Inject constructor(private val repository: AqicnRepository
                     )
             }
         }
+*/
     }
 }

@@ -1,8 +1,6 @@
 package com.bigflowertiger.aqicn.network
 
 import com.bigflowertiger.aqicn.model.AqicnResponse
-import kotlinx.coroutines.flow.Flow
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -15,5 +13,5 @@ interface AqicnService {
     suspend fun getGeolocalizedFeed(
         @Path("lng") lng: String,
         @Path("lat") lat: String
-    ): AqicnResponse
+    ): NetworkResult<AqicnResponse>
 }

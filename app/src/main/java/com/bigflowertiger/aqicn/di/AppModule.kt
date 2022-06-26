@@ -4,6 +4,7 @@ import com.bigflowertiger.aqicn.domain.AqicnRepository
 import com.bigflowertiger.aqicn.model.AqicnResponse
 import com.bigflowertiger.aqicn.network.AQICN_BASE_URL
 import com.bigflowertiger.aqicn.network.AqicnService
+import com.bigflowertiger.aqicn.network.NetworkResultCallAdapterFactory
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -24,6 +25,7 @@ object AppModule {
     ): Retrofit = Retrofit.Builder()
         .baseUrl(AQICN_BASE_URL)
         .addConverterFactory(GsonConverterFactory.create(gson))
+        .addCallAdapterFactory(NetworkResultCallAdapterFactory.create())
         .build()
 
     @Provides
