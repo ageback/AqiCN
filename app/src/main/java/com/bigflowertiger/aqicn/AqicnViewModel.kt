@@ -20,7 +20,7 @@ class AqicnViewModel @Inject constructor(private val repository: AqicnRepository
     val aqiState: State<AqicnState> = _aqiState
 
     init {
-//        fetchAqi("120.173580", "31.384260")
+        fetchAqi("120.173580", "31.384260")
     }
 
     fun fetchAqi(lng: String, lat: String) {
