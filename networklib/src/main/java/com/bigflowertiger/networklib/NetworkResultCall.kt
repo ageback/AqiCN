@@ -1,4 +1,4 @@
-package com.bigflowertiger.aqicn.network
+package com.bigflowertiger.networklib
 
 import okhttp3.Request
 import okio.Timeout

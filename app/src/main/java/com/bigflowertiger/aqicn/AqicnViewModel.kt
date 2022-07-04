@@ -7,9 +7,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bigflowertiger.aqicn.domain.AqicnRepository
 import com.bigflowertiger.aqicn.model.AqicnState
-import com.bigflowertiger.aqicn.network.onError
-import com.bigflowertiger.aqicn.network.onException
-import com.bigflowertiger.aqicn.network.onSuccess
+import com.bigflowertiger.networklib.onError
+import com.bigflowertiger.networklib.onException
+import com.bigflowertiger.networklib.onSuccess
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.bigflowertiger.aqicn.network
+package com.bigflowertiger.networklib
 
 sealed interface ApiResult<T : Any>
 

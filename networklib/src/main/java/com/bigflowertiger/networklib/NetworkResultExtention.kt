@@ -1,4 +1,4 @@
-package com.bigflowertiger.aqicn.network
+package com.bigflowertiger.networklib
 
 suspend fun <T : Any> NetworkResult<T>.onSuccess(
     executable: suspend (T) -> Unit

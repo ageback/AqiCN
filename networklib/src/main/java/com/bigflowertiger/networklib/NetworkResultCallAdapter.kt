@@ -1,4 +1,4 @@
-package com.bigflowertiger.aqicn.network
+package com.bigflowertiger.networklib
 
 import retrofit2.Call
 import retrofit2.CallAdapter

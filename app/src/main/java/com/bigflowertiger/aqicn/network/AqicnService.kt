@@ -1,6 +1,7 @@
 package com.bigflowertiger.aqicn.network
 
 import com.bigflowertiger.aqicn.model.AqicnResponse
+import com.bigflowertiger.networklib.NetworkResult
 import retrofit2.http.GET
 import retrofit2.http.Path
 

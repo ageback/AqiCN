@@ -1,4 +1,4 @@
-package com.bigflowertiger.aqicn.network
+package com.bigflowertiger.networklib
 
 import retrofit2.HttpException
 import retrofit2.Response
