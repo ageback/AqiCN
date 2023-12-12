@@ -29,11 +29,7 @@ class MainActivity : ComponentActivity() {
             val state = viewModel.aqiState.value
             val dailyAirChartDataList =
                 state.data?.data?.let { buildDailyAirQualityChartData(it.forecast) }
-                    ?.let {
-                        HistogramChartDataList(
-                            it
-                        )
-                    }
+                    ?.let { HistogramChartDataList(it) }
             AqiCNTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
